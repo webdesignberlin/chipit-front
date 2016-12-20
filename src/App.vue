@@ -87,9 +87,10 @@ body {
 	align-items: center;
 
 	.title {
-		// font-weight: bold;
+		font-weight: 100;
 		font-size: 1.5em;
 		span {
+			font-weight: 400;
 			color: #e74c3c;
 			span {
 				font-weight: 100;
@@ -102,12 +103,17 @@ body {
 			padding: 0;
 			a {
 				box-sizing: border-box;
+
 				text-transform: none;
 				text-decoration: none;
 				display: block;
 				padding: 0.5em 1em;
 				width: 100%;
 				height: 100%;
+				color: inherit;
+				&:visited {
+					color: inherit;
+				}
 			}
 		}
 	}
