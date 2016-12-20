@@ -1,10 +1,10 @@
 import * as firebase from 'firebase';
 const config = {
-	apiKey: "AIzaSyCFhCEcXax3z5e12L8PDg1KdrxSxobItPw",
-	authDomain: "chipit-323ff.firebaseapp.com",
-	databaseURL: "https://chipit-323ff.firebaseio.com",
-	storageBucket: "chipit-323ff.appspot.com",
-	messagingSenderId: "179230428633"
+	apiKey: "AIzaSyAhvZpEQzY5SCCZDmAEV9hyywpuTwe5PvM",
+	authDomain: "chip-on-fire.firebaseapp.com",
+	databaseURL: "https://chip-on-fire.firebaseio.com",
+	storageBucket: "chip-on-fire.appspot.com",
+	messagingSenderId: "1099462709184"
  };
 firebase.initializeApp(config);
 
