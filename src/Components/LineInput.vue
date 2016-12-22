@@ -26,23 +26,11 @@ export default {
 		// width: 100%;
 		display: flex;
 		justify-content: space-between;
-		margin: 10px 0;
-
-		label,
-		input {
-			// border: none;
-		}
-
-		label {
-			width: 90px;
-			padding: 0.3em 0;
-		}
+		align-items: center;
+		margin: 0.5em 0;
 
 		input {
 			flex-grow: 1;
-			padding: 0.3em;
-
-
 		}
 		&.modified input{
 			// border-color: #f1c40f;

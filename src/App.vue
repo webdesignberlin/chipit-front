@@ -1,23 +1,16 @@
 <template>
     <div class="app">
-		<div class="menuTop">
-			<div class="title">
-				C.H.I.P on <span>Fire<span>base</span></span>
-			</div>
-			<div class="buttons">
-				<button v-if="auth">
-					<router-link to="logout">Log Out</router-link>
-				</button>
-			</div>
-		</div>
-        <div class="MagicboxContainer">
-			<router-view></router-view>
-        </div>
+		<!-- The classic menubar shit -->
+		<MenuBar :auth="auth"></MenuBar>
+
+		<!-- The router view of the cool doggo -->
+		<router-view></router-view>
     </div>
 </template>
 
 <script>
 import firebase from './firebase.js';
+import MenuBar from './Components/MenuBar.vue';
 
 export default {
 	name: 'app',
@@ -26,6 +19,7 @@ export default {
 			auth: false
 		};
 	},
+	components: { MenuBar },
 	created () {
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
@@ -42,20 +36,24 @@ export default {
 
 <style lang='scss'>
 
+/* guud culurz */
+$blue1: #3498db;
+$blue2: #16a085;
+$black: #2c3e50;
+$white: #ecf0f1;
+$veryWhite: #fff;
+$blue: $blue1;
+
 /* monofont, for doing monostuff */
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Roboto:300,400,500');
 html,
 body {
     font-family: 'Roboto', sans-serif;
-    color: #2c3e50;
+    color: $black;
     max-width: 100%;
 }
 
-/* guud culurz */
-$blue1: #3498db;
-$blue2: #16a085;
-
-/* Background stuff */
+/* gradient bg, make it fixed to not fucked up on scroll */
 body {
     background: $blue1;
     background:  -webkit-linear-gradient(left top, $blue1, $blue2);
@@ -65,76 +63,60 @@ body {
     background-attachment: fixed;
 }
 
+/* app div cover all the window */
 .app {
     width: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.MagicboxContainer {
-    align-self: center;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-.menuTop {
-	padding: 0.5em 1em;
-	background: rgba(236, 240, 241, 0.75);
-	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
-
-	.title {
-		font-weight: 100;
-		font-size: 1.5em;
-		span {
-			font-weight: 400;
-			color: #e74c3c;
-			span {
-				font-weight: 100;
-			}
-		}
-	}
-
-	.buttons {
-		button{
-			padding: 0;
-			a {
-				box-sizing: border-box;
-
-				text-transform: none;
-				text-decoration: none;
-				display: block;
-				padding: 0.5em 1em;
-				width: 100%;
-				height: 100%;
-				color: inherit;
-				&:visited {
-					color: inherit;
-				}
-			}
-		}
-	}
 }
 
-/* Input stuff */
-input, button {
+/* Input normalization */
+input[type=text] {
 	font-family: 'Inconsolata', monospace;
-	background: #ecf0f1;
-	border: 2px solid #ecf0f1;
-	padding: 0.5em 1em;
+	background: $white;
+	border: 2px solid $white;
+	padding: 0.3em;
 	&:focus {
 		outline: none;
-		border-color: #3498db !important;
+		border-color: $blue;
 	}
 }
-button, input[type=submit], input[type=button] {
+
+/* button & button-like elements normalization */
+button, input[type=submit], input[type=button], .button {
+	display: block;
+	padding: 0.5em 1em;
+	box-sizing: border-box;
+	background: $white;
+	border: 2px solid $white;
+	color: inherit;
 	font-family: inherit;
+	text-transform: none;
+	text-decoration: none;
 	cursor: pointer;
-	&:active {
-		background: darken(#ecf0f1, 10%);
+
+	&:hover {
+		background: $veryWhite;
+		border-color: $veryWhite;
+	}
+
+	&:active, &:focus {
+		outline: none;
+		border-color: $blue;
 	}
 }
+
+
+label {
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 </style>

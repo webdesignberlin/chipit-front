@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import firebase from './firebase';
 
-import Lcd from './Views/LCD.vue';
+import ControlBoard from './Views/ControlBoard.vue';
 import Auth from './Views/Auth.vue';
 
 Vue.use(VueRouter);
@@ -10,6 +10,11 @@ Vue.use(VueRouter);
 const router = new VueRouter({
 	mode: 'hash',
 	routes: [
+		{
+			name: 'ControlBoard',
+			path: '/',
+			component: ControlBoard
+		},
 		{
 			name: 'login',
 			path: '/login',
@@ -31,12 +36,6 @@ const router = new VueRouter({
 				next();
 			},
 			component: Auth
-		},
-		{
-			name: 'lcd',
-			path: '/lcd',
-			component: Lcd,
-			alias: '/'
 		}
 	]
 });
