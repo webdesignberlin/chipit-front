@@ -40,7 +40,7 @@ export default {
 			line1: null,
 			line2: null,
 			blink: false,
-			on: true,
+			on: false,
 			line1Pristine: null,
 			line2Pristine: null
 		};
